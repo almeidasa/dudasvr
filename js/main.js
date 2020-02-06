@@ -5,8 +5,6 @@
 
 (function($) {
 
-	"use strict";
-
 	var isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
@@ -172,26 +170,62 @@
 		}
 	};
 
+	var primeiroBeijo = new Date(2019, 07, 18, 12, 00, 00).getTime();
+	var agora = new Date().getTime();
+	var diferenca = Math.abs(agora - primeiroBeijo);
+	var minutosJuntos = Math.ceil(diferenca / 1000 / 60);
+	var diasJuntos = Math.ceil(minutosJuntos / 60 / 24);
+	var mesesJuntos = Math.floor(diasJuntos / 30);
+
+	var elMesesJuntos = $(".meses-juntos");
+	var elDiasJuntos = $(".dias-juntos");
+	var elMinutosJuntos = $(".minutos-juntos");
 	
 	var counter = function() {
-		
 		$('#section-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+				setTimeout(function () { 
+					$(".informacoes").each(function(){
+						this.style.cssText = "";
+					});
+
+
+					$("#meses-juntos-valor")[0].textContent = mesesJuntos;
+					$("#dias-juntos-valor")[0].textContent = diasJuntos;
+					$("#minutos-juntos-valor")[0].textContent = minutosJuntos;
+				 }, 3500);
 
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.number').each(function(){
-					var $this = $(this),
-						num = $this.data('number');
-						console.log(num);
+				elMesesJuntos.each(function(){
+					var $this = $(this)
 					$this.animateNumber(
 					  {
-					    number: num,
+					    number: mesesJuntos,
 					    numberStep: comma_separator_number_step
-					  }, 7000
+					  }, 2000
 					);
 				});
 				
+				elDiasJuntos.each(function(){
+					var $this = $(this)
+					$this.animateNumber(
+					  {
+					    number: diasJuntos,
+					    numberStep: comma_separator_number_step
+					  }, 3500
+					);
+				});
+
+				elMinutosJuntos.each(function(){
+					var $this = $(this)
+					$this.animateNumber(
+					  {
+					    number: minutosJuntos,
+					    numberStep: comma_separator_number_step
+					  }, 3500
+					);
+				});
 			}
 
 		} , { offset: '95%' } );
