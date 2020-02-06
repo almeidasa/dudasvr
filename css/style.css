@@ -6188,10 +6188,6 @@ button.bg-dark:focus {
 .mx-5 {
   margin-right: 3rem !important; }
 
-.mb-5,
-.my-5 {
-  margin-bottom: 3rem !important; }
-
 .ml-5,
 .mx-5 {
   margin-left: 3rem !important; }
@@ -6301,10 +6297,6 @@ button.bg-dark:focus {
 .pr-5,
 .px-5 {
   padding-right: 3rem !important; }
-
-.pb-5,
-.py-5 {
-  padding-bottom: 3rem !important; }
 
 .pl-5,
 .px-5 {
@@ -8339,7 +8331,7 @@ textarea.form-control {
 
 .ftco-counter {
   background: #29bae4;
-  padding: 10em 0; }
+  padding: 2em 0; }
   .ftco-counter .text strong.number {
     font-weight: 400;
     font-size: 40px;
