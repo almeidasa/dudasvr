@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Senha para acesso - Sobre nós</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+  <div class="hero-wrap js-fullheight">
+    <div class="overlay"></div>
+    <div id="particles-js"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+        <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+          <div class="icon-hand-stop-o" style="font-size: 85px;margin-top: 50px; color: red;"></div>
+          <div class="form-group">
+            <h2>Qual a data do nosso primeiro beijo?</h2>
+            <input class="data-namoro form-control" type="date" placeholder="dd/MM/aaaa">
+            <input class="erros" type="number" hidden disabled class="form-control">
+          </div>
+          <button type="button" class="btn btn-info btn-lg" onclick="inicio()">Voltar</button>
+          <button type="submit" class="btn btn-success btn-lg" onclick="acesso()">Acessar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      function inicio()
+      {
+        window.location.href = "index.html"
+      }
+
+      function acesso()
+      {
+        var dataNamoro = $(".data-namoro").val();
+        var erros = $(".erros").val();
+
+        if(dataNamoro == "") {
+          alert("Insira a data!");
+        } else if(dataNamoro == "2019-08-18") {
+          window.location.href = "sobre-nos.html";
+        } else {
+          erros ++;
+          $(".erros").val(erros);
+          
+          if(erros == 1){
+            alert("ERROUUUU!")
+          } else if(erros == 2){
+            alert("Caramba amor, sério, não sabe a data de nosso primeiro beijo? Errou "+ erros + " vezes já!")
+          } else if(erros == 3){
+            alert("Affz, não acredito! " + erros + " vezes erradas!")
+          } else if(erros >= 4){
+            alert("Ok, pode me perguntar!")
+          }
+        }
+        
+      }
+  </script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/particles.min.js"></script>
+  <script src="js/particle.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
