@@ -174,11 +174,13 @@
 	var agora = new Date().getTime();
 	var diferenca = Math.abs(agora - primeiroBeijo);
 	var minutosJuntos = Math.ceil(diferenca / 1000 / 60);
-	var diasJuntos = Math.ceil(minutosJuntos / 60 / 24);
+	var horasJuntos = Math.ceil(minutosJuntos / 60);
+	var diasJuntos = Math.ceil(horasJuntos / 24);
 	var mesesJuntos = Math.floor(diasJuntos / 30);
 
 	var elMesesJuntos = $(".meses-juntos");
 	var elDiasJuntos = $(".dias-juntos");
+	var elHorasJuntos = $(".horas-juntos");
 	var elMinutosJuntos = $(".minutos-juntos");
 	
 	var counter = function() {
@@ -190,9 +192,9 @@
 						this.style.cssText = "";
 					});
 
-
 					$("#meses-juntos-valor")[0].textContent = mesesJuntos;
 					$("#dias-juntos-valor")[0].textContent = diasJuntos;
+					$("#horas-juntos-valor")[0].textContent = horasJuntos;
 					$("#minutos-juntos-valor")[0].textContent = minutosJuntos;
 				 }, 3500);
 
@@ -212,6 +214,16 @@
 					$this.animateNumber(
 					  {
 					    number: diasJuntos,
+					    numberStep: comma_separator_number_step
+					  }, 3500
+					);
+				});
+
+				elHorasJuntos.each(function(){
+					var $this = $(this)
+					$this.animateNumber(
+					  {
+					    number: horasJuntos,
 					    numberStep: comma_separator_number_step
 					  }, 3500
 					);
